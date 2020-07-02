@@ -1,0 +1,25 @@
+{
+  "name": "slate-react-system",
+  "version": "0.0.1",
+  "description": "Components, constants, and experiences for the Filecoin Network and Textile",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "keywords": [
+    "components",
+    "react",
+    "react-component",
+    "ui",
+    "design-system",
+    "styled-system",
+    "styled-components",
+    "emotion",
+    "filecoin",
+    "ipfs"
+  ],
+  "author": "Protocol Labs",
+  "license": "MIT",
+  "repository": "filecoin-project/slate-react-system",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
