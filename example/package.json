@@ -17,6 +17,6 @@
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "slate-react-system": "0.0.1"
+    "slate-react-system": "0.0.2"
   }
 }
