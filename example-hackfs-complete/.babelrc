@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "transform-runtime": {
+          "useESModules": false
+        }
+      }
+    ],
+    "@emotion/babel-preset-css-prop"
+  ]
+}

@@ -1,23 +1,14 @@
 import * as React from "react";
-import * as System from "slate-react-system";
+
+import { css } from "@emotion/react";
+
+const STYLES_PAGE = css`
+  margin: 0;
+  padding: 0;
+`;
 
 export default class TestPage extends React.Component {
   render() {
-    return (
-      <div>
-        <System.H1>Component Library Test</System.H1>
-        <br />
-        <br />
-        <System.P>
-          If this works. That means the component library bundle is working
-          correctly.
-          <br />
-          <br />
-          <System.ButtonPrimary>Primary</System.ButtonPrimary> &nbsp;
-          <System.ButtonSecondary>Secondary</System.ButtonSecondary> &nbsp;
-          <System.ButtonDisabled>Disabled</System.ButtonDisabled>
-        </System.P>
-      </div>
-    );
+    return <div css={STYLES_PAGE}>Hey everyone!</div>;
   }
 }

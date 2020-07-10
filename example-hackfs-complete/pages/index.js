@@ -42,11 +42,34 @@ export default class TestPage extends React.Component {
     this.setState({ addrsList, info });
   };
 
-  _handleSubmitFile = async ({ file }) => {
-    let data = new FormData();
-    data.append("image", file);
+  _handleSubmitFile = async (data) => {
+    const file = data.file.files[0];
 
-    console.log(data);
+    var buffer = [];
+
+    // NOTE(jim): A little hacky...
+    const getByteArray = async () =>
+      new Promise((resolve) => {
+        const reader = new FileReader();
+
+        reader.onloadend = function(e) {
+          if (e.target.readyState == FileReader.DONE) {
+            buffer = new Uint8Array(e.target.result);
+          }
+
+          resolve();
+        };
+
+        reader.readAsArrayBuffer(file);
+      });
+
+    await getByteArray();
+
+    const { cid } = await this.PG.ffs.addToHot(buffer);
+    const { jobId } = await this.PG.ffs.pushConfig(cid);
+    const cancel = this.PG.ffs.watchJobs((job) => {
+      console.log(job);
+    }, jobId);
   };
 
   _handleSendFilecoin = async ({ source, target, amount }) => {
