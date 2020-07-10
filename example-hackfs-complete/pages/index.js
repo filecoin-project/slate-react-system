@@ -5,6 +5,8 @@ import {
   CreateToken,
   CreateFilecoinAddress,
   CreateFilecoinStorageDeal,
+  FilecoinBalancesList,
+  SendAddressFilecoin,
 } from "slate-react-system";
 import { createPow } from "@textile/powergate-client";
 
@@ -13,6 +15,12 @@ export default class TestPage extends React.Component {
   state = { token: null, info: null, addrsList: [] };
 
   componentDidMount() {}
+
+  _handleRefresh = async () => {
+    const { addrsList } = await this.PG.ffs.addrs();
+    const { info } = await this.PG.ffs.info();
+    this.setState({ addrsList, info });
+  };
 
   _handleCreateToken = async () => {
     this.PG = createPow({ host: "http://0.0.0.0:6002" });
@@ -41,18 +49,34 @@ export default class TestPage extends React.Component {
     console.log(data);
   };
 
+  _handleSendFilecoin = async ({ source, target, amount }) => {
+    const response = await this.PG.ffs.sendFil(source, target, amount);
+
+    const { addrsList } = await this.PG.ffs.addrs();
+    const { info } = await this.PG.ffs.info();
+    this.setState({ addrsList, info });
+  };
+
   render() {
     console.log(this.state);
-    const { token } = this.state;
+    const { token, info } = this.state;
 
     return (
       <div>
-        <System.H1>Filecoin Application</System.H1>
+        <System.H1 onClick={this._handleRefresh}>
+          Filecoin Application (Click to update)
+        </System.H1>
 
         <CreateToken
           token={this.state.token}
           onClick={this._handleCreateToken}
         />
+
+        {info ? (
+          <FilecoinBalancesList data={this.state.info.balancesList} />
+        ) : null}
+
+        <SendAddressFilecoin onSubmit={this._handleSendFilecoin} />
 
         <CreateFilecoinAddress onSubmit={this._handleCreateAddress} />
 
