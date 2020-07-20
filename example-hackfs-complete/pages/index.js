@@ -23,7 +23,7 @@ export default class TestPage extends React.Component {
   };
 
   _handleCreateToken = async () => {
-    this.PG = createPow({ host: "http://0.0.0.0:6002" });
+    this.PG = createPow({ host: "http://pow.slate.textile.io:6002" });
     const FFS = await this.PG.ffs.create();
     this.setState({ token: FFS.token ? FFS.token : null });
 
