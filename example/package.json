@@ -19,7 +19,7 @@
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "@textile/powergate-client": "0.1.0",
-    "slate-react-system": "0.0.6"
+    "@textile/powergate-client": "0.2.0",
+    "slate-react-system": "0.0.7"
   }
 }

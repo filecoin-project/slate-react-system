@@ -1,5 +1,5 @@
 {
-  "name": "slate-react-system-example-hackfs-complete",
+  "name": "slate-react-system-example-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,7 +19,6 @@
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "@textile/powergate-client": "0.2.0",
     "slate-react-system": "0.0.7"
   }
 }
