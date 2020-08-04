@@ -4,17 +4,18 @@ export default class SlateIndexPage extends React.Component {
   _handleUpload = async (e) => {
     e.persist();
 
-    const url = "https://slate.host/api/v1/upload-data/--";
+    const url =
+      "https://slate.host/api/v1/upload-data/YOUR-SLATE-ID-FROM-SLATE";
     let file = e.target.files[0];
     let data = new FormData();
 
-    data.append("image", file);
+    data.append("data", file);
 
     console.log("Making a storage request");
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        Authorization: "Basic --",
+        Authorization: "Basic YOUR-DEVELOPER-API_KEY",
       },
       body: data,
     });
