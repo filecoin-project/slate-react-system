@@ -1,5 +1,5 @@
 {
-  "name": "slate-react-system-example",
+  "name": "slate-react-system-starting-project-powergate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,17 +9,17 @@
     "start": "next start"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.28",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/cache": "11.0.0-next.12",
+    "@emotion/core": "^10.0.28",
     "@emotion/css": "11.0.0-next.12",
     "@emotion/react": "11.0.0-next.12",
     "@emotion/server": "11.0.0-next.12",
     "@emotion/styled": "11.0.0-next.12",
-    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@textile/powergate-client": "0.2.0",
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "@textile/powergate-client": "1.0.0",
     "slate-react-system": "0.1.0"
   }
 }
